@@ -54,7 +54,7 @@ export default function Home() {
             <span>{details?.gender}</span>
           </div>
           <div>
-            <span style={{fontWeight:'bold'}}>Nation: </span>
+            <span style={{fontWeight:'bold'}}>Country: </span>
             <span>{details?.nation}</span>
           </div>
         </div>
