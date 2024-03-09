@@ -12,15 +12,15 @@ export default function Home() {
 
   const handleSubmit = async (name) => {
     try {
-      const [agify, genderize] = await Promise.all([
+      const [agify, genderize,nationalize] = await Promise.all([
         axios.get(`https://api.agify.io/?name=${name}`),
         axios.get(`https://api.genderize.io/?name=${name}`),
-        // axios.get(`https://api.nationalize.io/?name=${name}`)
+        axios.get(`https://api.nationalize.io/?name=${name}`)
       ])
       setDetails({
-        age: agify?.data?.age,
-        gender: genderize?.data?.gender,
-        // nation:nationalize?.country[0]?.country_id
+        age: agify?.data?.age || "-",
+        gender: genderize?.data?.gender || "-",
+        nation:nationalize?.data?.country[0]?.country_id || "-"
       })
       openModal()
     } catch (error) {
